@@ -5,7 +5,7 @@ const getInput = async (filename: string, options: {
   splitChar?: string | null;
   maxLines?: null | number;
 } = defaultOptions) => {
-  const text = await Deno.readTextFile(`${options.folder}/${filename}`);
+  const text = (await Deno.readTextFile(`${options.folder}/${filename}`)).trimEnd();
   const textSplit = options.splitChar ? text.split(options.splitChar) : [text]
   const textSub = options.maxLines ? textSplit.slice(0, options.maxLines) : textSplit
 
