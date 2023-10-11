@@ -10,9 +10,10 @@ import getInput from "./utils/getInput.ts";
 import solutionTwoPartTwo from "./solutions/day_2/2-1.ts";
 import solutionTwo from "./solutions/day_2/2.ts";
 import { solutionThree } from "./solutions/day_3/3.ts";
+import { solutionThreePartTwo } from "./solutions/day_3/3-1.ts";
 
 const sample = 3 as number;
-const second = false;
+const second = true;
 const withSample = false;
 
 console.log("Hello");
@@ -27,7 +28,7 @@ const solutionInput = await getInput(
   },
 );
 
-let solution: unknown = "";
+let solution: unknown = null;
 
 switch (sample) {
   case 2:
@@ -36,7 +37,9 @@ switch (sample) {
       : solutionTwo(solutionInput);
     break;
   case 3:
-    solution = second ? null : solutionThree(solutionInput);
+    solution = second
+      ? solutionThreePartTwo(solutionInput)
+      : solutionThree(solutionInput);
     break;
 }
 

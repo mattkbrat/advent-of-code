@@ -25,7 +25,7 @@
       "runtimeArgs": [
         /* modified: was generated as "run", but you asked about testing */
         "test",
-        "utils/findDuplicates_test.ts",
+        "solutions/day_3/3_test.ts",
 
         /* modified: was generated as "--inspect", but using this option
         causes an initial break to wait for the debugger to attach */
