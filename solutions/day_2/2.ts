@@ -76,17 +76,12 @@ export const getPlayScore = (line: string) => {
 
   const thesePoints = shapePoints + playPoints
 
-  console.log("New input with a value of", thesePoints, {play, opp, shapePoints, playPoints})
-
   cache[line] = thesePoints;
 
   return thesePoints;
 }
 
 const solutionTwo = (input: string[]) => {
-
-  console.log("Running solution 2")
-
   const finalScore = input.reduce(
     (acc, curr) => {
       const nextScore = cache[curr] 

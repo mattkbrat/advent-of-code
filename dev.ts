@@ -9,23 +9,37 @@ import { defaultOptions } from "./lib/getInputDefaultOptions.ts";
 import getInput from "./utils/getInput.ts";
 import solutionTwoPartTwo from "./solutions/day_2/2-1.ts";
 import solutionTwo from "./solutions/day_2/2.ts";
+import { solutionThree } from "./solutions/day_3/3.ts";
 
-const sample = 2 as number;
-const second = true;
+const sample = 3 as number;
+const second = false;
+const withSample = false;
 
-const solutionInput = await getInput(`day${sample}.txt`, {
-  ...defaultOptions,
-  // "maxLines": 50,
-})
+console.log("Hello");
+
+const inputString = `day${sample}${withSample ? "-sample" : ""}.txt`;
+
+const solutionInput = await getInput(
+  inputString,
+  {
+    ...defaultOptions,
+    // "maxLines": 50,
+  },
+);
 
 let solution: unknown = "";
 
 switch (sample) {
-  case 2: {
-    solution = second ? solutionTwoPartTwo(solutionInput) : solutionTwo(solutionInput) 
-  }
+  case 2:
+    solution = second
+      ? solutionTwoPartTwo(solutionInput)
+      : solutionTwo(solutionInput);
+    break;
+  case 3:
+    solution = second ? null : solutionThree(solutionInput);
+    break;
 }
 
-console.log({solution})
+console.log({ solution });
 
 await dev(import.meta.url, "./main.ts", config);
