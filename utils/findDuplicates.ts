@@ -1,29 +1,24 @@
 /**
  * Finds duplicate elements between arrays
  */
-const findDuplicates = (arr: string[]) => {
-  const duplicates: string[] = [];
-  const tested: string[] = [];
-  
-  for (let i = 0; i < arr.length; i++) {
-    const testArr = arr.splice(i, 1);
-    const characters = arr[i].split("");
+const findDuplicates = (arr: string[], minDuplicateCount = 1) => {
 
-    for (const s of testArr) {
-      for (const c of characters) {
-        if (duplicates.includes(c) || tested.includes(c)) continue;
-        else {
-          if (!s.includes(c)) {
-            tested.push(c);
-            continue;
-          }
-          duplicates.push(c);
-        }
+  const characters = new Set(arr.map(a => a.split("")).flat())
+  const duplicates: string[] = [];
+
+
+  console.log({characters});
+
+  for (const c of characters ) {
+    for (const a of arr) {
+      if (a.includes(c)){
+        duplicates.push(c);      
       }
     }
   }
 
-  return duplicates;
+  return [...new Set(duplicates.filter(d => duplicates.filter(c => c === d).length > minDuplicateCount))]
+
 };
 
 export default findDuplicates;
