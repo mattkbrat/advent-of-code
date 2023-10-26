@@ -12,8 +12,9 @@ import solutionTwo from "./solutions/2022/day_2/2.ts";
 import { solutionThree } from "./solutions/2022/day_3/3.ts";
 import { solutionThreePartTwo } from "./solutions/2022/day_3/3-1.ts";
 import fourOne2022 from "./solutions/2022/day_4/sol1.ts";
+import fiveOne2022 from "./solutions/2022/day_5/sol1.ts";
 
-const sample = 4 as number;
+const sample = 5 as number;
 const second = true;
 const withSample = false;
 
@@ -47,6 +48,14 @@ switch (sample) {
     solution = second
       ? fourOne2022(solutionInput, true)
       : fourOne2022(solutionInput, false);
+      break;
+  case 5:
+    solution = second 
+    ? fiveOne2022(solutionInput, false) 
+    :  fiveOne2022(solutionInput);
+    break;
+  default:
+    console.warn("Solution not linked")
 }
 
 console.log({ solution });
