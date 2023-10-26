@@ -2,7 +2,7 @@ import { assertEquals } from "https://deno.land/std@0.202.0/assert/mod.ts";
 import solutionTwo, { getPlayScore, getPlayStatus } from "./2.ts";
 
 import solutionTwoPartTwo from "./2-1.ts";
-import getInput from "../../utils/getInput.ts";
+import getInput from "../../../utils/getInput.ts";
 
 const sampleInput = await getInput("day2-sample.txt")
 

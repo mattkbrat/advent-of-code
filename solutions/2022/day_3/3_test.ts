@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.202.0/assert/mod.ts";
 
-import getInput from "../../utils/getInput.ts";
+import getInput from "../../../utils/getInput.ts";
 import { solutionThree } from "./3.ts";
 import { solutionThreePartTwo } from "./3-1.ts";
 

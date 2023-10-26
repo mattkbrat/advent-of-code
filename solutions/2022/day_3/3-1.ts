@@ -1,14 +1,21 @@
-import findDuplicates from "../../utils/findDuplicates.ts";
-import { text } from "../../utils/splitIntoGroups.ts";
+import findDuplicates from "../../../utils/findDuplicates.ts";
+import { array, text } from "../../../utils/splitIntoGroups.ts";
 
-export const solutionThree = (input: string[]) => {
+export const solutionThreePartTwo = (input: string[]) => {
 
   let scoreSum = 0;
 
-  for (const line of input) {
-    const split = text(line);
+  // Split into groups of three lines
 
-    const duplicates = findDuplicates(split);
+  const groups = array(input, 3)
+
+  console.log(groups);
+
+  for (const group of groups) {
+
+    const duplicates = findDuplicates(group, 2);
+
+    console.log({group, duplicates})
 
     let score = 0;
 
