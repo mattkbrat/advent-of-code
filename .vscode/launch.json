@@ -20,7 +20,8 @@
       "cwd": "${workspaceFolder}",
 
       /* modified: using deno process name from my PATH */
-      "runtimeExecutable": "/home/mb/.deno/bin/deno",
+      "runtimeExecutable": "C:/Users/matt/.deno/bin/deno",
+
 
       "runtimeArgs": [
         /* modified: was generated as "run", but you asked about testing */
@@ -43,7 +44,7 @@
       "type": "node",
       "program": "${workspaceFolder}/dev.ts",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "/home/mb/.deno/bin/deno",
+      "runtimeExecutable": "C:/Users/matt/.deno/bin/deno",
       "runtimeArgs": [
         "run",
         "--inspect-wait",
