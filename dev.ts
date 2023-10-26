@@ -7,18 +7,20 @@ import "$std/dotenv/load.ts";
 
 import { defaultOptions } from "./lib/getInputDefaultOptions.ts";
 import getInput from "./utils/getInput.ts";
-import solutionTwoPartTwo from "./solutions/day_2/2-1.ts";
-import solutionTwo from "./solutions/day_2/2.ts";
-import { solutionThree } from "./solutions/day_3/3.ts";
-import { solutionThreePartTwo } from "./solutions/day_3/3-1.ts";
+import solutionTwoPartTwo from "./solutions/2022/day_2/2-1.ts";
+import solutionTwo from "./solutions/2022/day_2/2.ts";
+import { solutionThree } from "./solutions/2022/day_3/3.ts";
+import { solutionThreePartTwo } from "./solutions/2022/day_3/3-1.ts";
+import fourOne2022 from "./solutions/2022/day_4/sol1.ts";
 
-const sample = 3 as number;
+const sample = 4 as number;
 const second = true;
 const withSample = false;
 
-console.log("Hello");
-
 const inputString = `day${sample}${withSample ? "-sample" : ""}.txt`;
+
+console.log('running solution', inputString);
+
 
 const solutionInput = await getInput(
   inputString,
@@ -41,6 +43,10 @@ switch (sample) {
       ? solutionThreePartTwo(solutionInput)
       : solutionThree(solutionInput);
     break;
+  case 4:
+    solution = second
+      ? fourOne2022(solutionInput, true)
+      : fourOne2022(solutionInput, false);
 }
 
 console.log({ solution });
