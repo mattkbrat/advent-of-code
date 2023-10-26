@@ -20,17 +20,19 @@ const fourOne2022 = (content: string[], inclusive = false) => {
 
     // we assume that each elf's assignment is already sorted (a-b)
 
+    // assignment one start is greater than assignment 2 start
+    const a1SGEA2S = e1A[0] >= e2A[0];
+    const a2EGEA1S = e2A[1] >= e1A[0];
+    const a1EGEA2E = e1A[1] <= e2A[1];
+    const a2EGEA1E = e2A[1] <= e1A[1]
+    const sMid = e1A[1] === e2A[0]
+
     if (inclusive) {
 
-      const sMid = e1A[1] === e2A[0]
-      // =AND([@E1A0]>=[@E2A0],[@E2A1]>=[@E1A0])
-      const leftIncluded0 = e1A[0] >= e2A[0] && e2A[1] >= e1A[0]
-      // =AND([@E1A1]<=[@E2A1],[@E1A0]>=[@E2A0])
-      const rightIncluded0 = e1A[1] <= e2A[1] && e1A[0] >= e2A[0]
-      // =AND([@E2A0]<=[@E1A1],[@E2A1]>=[@E1A1])
+      const leftIncluded0 = a1SGEA2S && a2EGEA1S
+      const rightIncluded0 = a1EGEA2E && a1SGEA2S
       const leftIncluded1 = e2A[0] <= e1A[1] && e2A[1] >= e1A[1]
-      // =AND([@E2A1]<=[@E1A1],[@E2A0]>=[@E1A0])
-      const rightIncluded1 = e2A[1] <= e1A[1] && e2A[0] >= e1A[0]
+      const rightIncluded1 = a2EGEA1E && !a1SGEA2S
 
       const overlaps = sMid || leftIncluded0 || rightIncluded0 || leftIncluded1 || rightIncluded1
 
@@ -41,7 +43,7 @@ const fourOne2022 = (content: string[], inclusive = false) => {
       }
 
     } else {
-      if ((e1A[0] >= e2A[0] && e1A[1] <= e2A[1]) || (e2A[0] >= e1A[0] && e2A[1] <= e1A[1]) ) {
+      if ((a1SGEA2S && a1EGEA2E) || (e2A[0] >= e1A[0] && a2EGEA1E) ) {
         const newGroupedGroup = [e1A, e2A] as [Assignment, Assignment]
   
         pairsThatFullyOverlap.push(newGroupedGroup)
