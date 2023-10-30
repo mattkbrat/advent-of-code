@@ -13,8 +13,9 @@ import { solutionThree } from "./solutions/2022/day_3/3.ts";
 import { solutionThreePartTwo } from "./solutions/2022/day_3/3-1.ts";
 import fourOne2022 from "./solutions/2022/day_4/sol1.ts";
 import fiveOne2022 from "./solutions/2022/day_5/sol1.ts";
+import sixOne2022 from "./solutions/2022/day_6/sol1.ts";
 
-const sample = 5 as number;
+const sample = 6 as number;
 const second = true;
 const withSample = false;
 
@@ -54,6 +55,9 @@ switch (sample) {
     ? fiveOne2022(solutionInput, false) 
     :  fiveOne2022(solutionInput);
     break;
+  case 6: 
+    solution = second ? sixOne2022(solutionInput, 14) : sixOne2022(solutionInput, 4);
+    break
   default:
     console.warn("Solution not linked")
 }
